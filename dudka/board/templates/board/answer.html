@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+   Оставить ответ
+{% endblock %}
+
+{% block baza %}
+
+<div class="features">
+    <h1>Оставить ответ</h1>
+    <form method="post">
+      {% csrf_token %}
+        {{form.full_text}}<br>
+
+
+      <button class="btn" type="submit">Публиковать</button>
+    </form>
+</div>
+
+{% endblock %}

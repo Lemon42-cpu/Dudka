@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+   Доска вопросов
+{% endblock %}
+
+{% block baza %}
+
+<div class="features">
+    <h1>Доска вопросов</h1>
+
+
+    {% for el in board %}
+        <span class="question">
+            <h3>{{el.title}}</h3>
+            <p>{{el.anons}}</p>
+            <p>Автор: {{el.user}}</p>
+            <p>{{el.date}}</p>
+           <a href="{% url 'board_view' el.id%}" class="btn">Подробнее</a>
+        </span>
+    {% endfor %}
+</div>
+
+{% endblock %}

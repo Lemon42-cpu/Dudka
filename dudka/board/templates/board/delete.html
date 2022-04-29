@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+   Удалить вопрос
+{% endblock %}
+
+{% block baza %}
+
+<div class="features">
+    <h1>Удалить вопрос</h1>
+    <form method="post">
+      {% csrf_token %}
+
+      <button class="btn" type="submit">УДОЛИ</button>
+    </form>
+</div>
+
+{% endblock %}

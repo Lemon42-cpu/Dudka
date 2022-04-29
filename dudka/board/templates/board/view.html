@@ -1,0 +1,38 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+{{article.title}}
+{% endblock %}
+
+{% block baza %}
+
+<div class="features">
+
+<div>
+    <h1>{{article.title}}</h1>
+
+    <p>Автор: {{article.user}} (Дата публикации: {{article.date}})</p>
+
+    <p>{{article.full_text}}</p>
+
+    {%if user.id == article.user.id%}
+    <a href="{%url 'board_delete' article.id%}" class="btn">Удалить</a>
+    <a href="{%url 'board_update' article.id%}" class="btn">Редактировать</a>
+    {%endif%}
+</div>
+    <h2>Ответы</h2>
+    <span class="title_4">
+    <a href="{% url 'board_answer' article.id%}" class="btn">Ответить</a>
+        </span>
+    {% for comm in answer %}
+    <span class="answer">
+
+        <h4>Пользователь: {{comm.user}} опубликовал в {{comm.date}}</h4>
+
+    <p>{{comm.full_text}}</p>
+    {% endfor %}
+    </span>
+
+</div>
+
+{% endblock %}
